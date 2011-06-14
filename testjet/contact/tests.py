@@ -12,7 +12,7 @@ class ContactsTest(TestCase):
 
     def test_contacts(self):
         self.assertEqual(self.person.contacts.email, "jetmind2@gmail.com")
-        self.assertEqual(self.person.contacts.jabber, "i.bond@gmail.com")
+        self.assertEqual(self.person.contacts.jabber, "i.bond@jabber.com.ua")
 
     def test_bio(self):
         self.assertTrue(self.person.bio != '')
