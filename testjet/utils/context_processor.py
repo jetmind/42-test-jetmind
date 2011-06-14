@@ -1,4 +1,4 @@
-import django
+import testjet
 
 def add_settings(request):
-    return {}
+    return {'settings': testjet.settings}

@@ -20,4 +20,8 @@ class ContextProcessorTest(TestCase):
 
     def test_context_processor(self):
         response = self.client.get('/')
-        self.assertTrue('settings' in response.context)
+        try:
+            s = response.context['settings']
+        except:
+            s = False
+        self.assertTrue(s)
