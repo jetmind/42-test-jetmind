@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>42 Coffee Cups Test Asignment</h1>
+<div style="float: left; width: 400px;">
+    <p>{{ person.name }}</p>
+    <p>{{ person.surname }}</p>
+    <p>{{ person.birth }}</p>
+    <p></p>
+    <p>Bio:<br />{{ person.bio|linebreaks }}</p>
+</div>
+
+<div style="float: left;">
+    <p></p>
+    <p>Email: {{ person.contacts.email }}</p>
+    <p>Jabber: {{ person.contacts.jabber }}</p>
+    <p>other contacts:<br />{{ person.contacts.other|linebreaks }}</p>
+</div>
+{% endblock %}
