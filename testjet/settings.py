@@ -76,6 +76,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+
+    'testjet.utils.middleware.SaveHttpRequestMiddleware',
 )
 
 ROOT_URLCONF = 'testjet.urls'
@@ -98,6 +100,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'testjet.contact',
+    'testjet.requestmiddle',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
