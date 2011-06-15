@@ -63,6 +63,8 @@ LOGIN_REDIRECT_URL = '/edit/'
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = '/media/'
 
+STATIC_DOC_ROOT = os.path.join(CURRENT_PATH, 'static')
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'z$0je5_-g118tfigx76&t+*)kf9io^fewk=awgh_wo(3s%by6o'
 

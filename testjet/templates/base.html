@@ -4,6 +4,8 @@
 <head>
 	<title>42 Coffe Cups Test</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    {% block head %}
+    {% endblock %}
 </head>
 
 <body>
@@ -15,6 +17,9 @@
     {% block content %}	
                 
     {% endblock %}
+</div>
+<div id="footer">
+    {% include  "footer.html" %}
 </div>
 </body>
 </html>
