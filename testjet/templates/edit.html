@@ -27,8 +27,13 @@
         }
 
         $(document).ajaxStart(function() { 
+            $('#editForm input').attr("disabled", "disabled");
+            $('#editForm textarea').attr("disabled", "disabled");
             $('#status').html("Sending form data...");
             $('#status').css({color: "blue"});
+        }).ajaxStop(function() {
+            $('#editForm input').removeAttr("disabled");
+            $('#editForm textarea').removeAttr("disabled");
         });
     
     </script>

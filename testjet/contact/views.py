@@ -43,24 +43,7 @@ def edit_view(request, template_name='edit.html'):
 
         json = simplejson.dumps(ret)
         return HttpResponse(json, mimetype='application/json')
-
-
-
-        #if person_form.is_valid() and contacts_form.is_valid():
-            #p.name = person_form.cleaned_data['name']
-            #p.surname = person_form.cleaned_data['surname']
-            #p.birth = person_form.cleaned_data['birth'] 
-            #p.bio = person_form.cleaned_data['bio']
-
-            #c.email = contacts_form.cleaned_data['email']
-            #c.jabber = contacts_form.cleaned_data['jabber'] 
-            #c.other = contacts_form.cleaned_data['other']
-
-            #p.save()
-            #c.save()
-
-            #return HttpResponseRedirect(reverse('index'))
-
+        
     else:
         person_form = PersonEditForm(instance=p)
         contacts_form = ContactsEditForm(instance=c)
