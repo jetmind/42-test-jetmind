@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns('testjet.contact.views',
-    (r'', 'index_view', {'template_name': 'index.html'}),
+    (r'^edit/$', 'edit_view', {'template_name': 'edit.html'}, 'edit'),
+    (r'', 'index_view', {'template_name': 'index.html'}, 'index'),
 )
