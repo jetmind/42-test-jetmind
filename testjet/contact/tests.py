@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from contact.models import Person
 
 class ContactsTest(TestCase):
@@ -16,3 +16,15 @@ class ContactsTest(TestCase):
 
     def test_bio(self):
         self.assertTrue(self.person.bio != '')
+
+
+class ChangeDataTest(TestCase):
+    
+    def test_change(self):
+        c = Client()
+        self.assertTrue(c.login(username='admin', password='admin'))
+        c.post('/edit/', {'name': 'jet', 'surname': 'mind'})
+
+        person = Person.objects.get(pk=1)
+        self.assertEqual(person.name, 'jet')
+        self.assertEqual(person.surname, 'mind')

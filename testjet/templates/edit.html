@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>42 Coffee Cups Test Asignment</h1>
+<form method="POST" action="{% url edit %}">
+    {% csrf_token %}
+    <table width="100%">
+        <tr>
+            <td>
+                <table>
+                    {{ person_form.as_table }}
+                </table>
+            </td>
+            <td>
+                <table>
+                    {{ contacts_form.as_table }}
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Edit" />
+                <a href="{% url index %}">Cancel</a>
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}
