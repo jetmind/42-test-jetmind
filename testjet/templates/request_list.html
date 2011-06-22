@@ -2,6 +2,13 @@
 {% block content %}
 <h1>42 Coffee Cups Test Asignment</h1>
 {% for r in request_list %}
-    {{ r }}<br />
+    {{ r }} 
+    <form action="{% url request_list %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="requestid" value="{{ r.pk }}" />
+        <input type="submit" value="set" />
+    </form>
+    <br />
 {% endfor %}
 {% endblock %}
