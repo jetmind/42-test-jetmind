@@ -16,10 +16,5 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
-    (r'^requests/', include('testjet.requestmiddle.urls')),
-    (r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}, 'login'),
-    (r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, 'logout'),
-    (r'^static/(?P<path>.*)$', 'django.views.static.serve', 
-        {'document_root': settings.STATIC_DOC_ROOT}, 'static'),
     (r'', include('testjet.contact.urls')),
 )
