@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from contact.models import Person
 
 class ContactsTest(TestCase):
@@ -16,3 +16,9 @@ class ContactsTest(TestCase):
 
     def test_bio(self):
         self.assertTrue(self.person.bio != '')
+
+    def test_page_content(self):
+        client = Client()
+        response = client.get('/')
+        self.assertContains(response, 'Igor', count=1, status_code=200)
+        self.assertContains(response, 'Bondarenko', count=1)
