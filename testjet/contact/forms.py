@@ -10,3 +10,4 @@ class ContactsEditForm(forms.ModelForm):
     class Meta:
         model = Contacts
         fields = ('other', 'jabber', 'email')
+
