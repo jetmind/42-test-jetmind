@@ -17,6 +17,11 @@ class ContactsTest(TestCase):
     def test_bio(self):
         self.assertTrue(self.person.bio != '')
 
+    def test_page_content(self):
+        client = Client()
+        response = client.get('/')
+        self.assertContains(response, 'Igor', count=1, status_code=200)
+        self.assertContains(response, 'Bondarenko', count=1)
 
 class ChangeDataTest(TestCase):
     
@@ -31,3 +36,4 @@ class ChangeDataTest(TestCase):
         self.assertEqual(person.name, 'jet')
         self.assertEqual(person.surname, 'mind')
         self.assertEqual(person.contacts.other, 'some info')
+
