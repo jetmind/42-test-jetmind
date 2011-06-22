@@ -1,4 +1,4 @@
 test:	
-	python testjet/manage.py test
+	testjet/manage.py test
 
 .PHONY: test
