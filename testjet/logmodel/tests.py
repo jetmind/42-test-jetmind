@@ -15,8 +15,7 @@ class SignalsTest(TestCase):
         
         log = LogModel.objects.all().order_by('-time')[0]
         self.assertEquals(log.action, 'c')
-        self.assertEquals(log.model_class, person.__class__)
-        self.assertEquals(log.model_id, person.id)
+        self.assertEquals(unicode(log.model_class), unicode(person.__class__))
 
     def test_edition(self):
         person = Person.objects.get(id=1)
@@ -25,8 +24,7 @@ class SignalsTest(TestCase):
 
         log = LogModel.objects.all().order_by('-time')[0]
         self.assertEquals(log.action, 'e')
-        self.assertEquals(log.model_class, person.__class__)
-        self.assertEquals(log.model_id, person.id)
+        self.assertEquals(unicode(log.model_class), unicode(person.__class__))
 
 
     def test_deletion(self):
@@ -35,5 +33,4 @@ class SignalsTest(TestCase):
 
         log = LogModel.objects.all().order_by('-time')[0]
         self.assertEquals(log.action, 'd')
-        self.assertEquals(log.model_class, person.__class__)
-        self.assertEquals(log.model_id, person.id)
+        self.assertEquals(unicode(log.model_class), unicode(person.__class__))
