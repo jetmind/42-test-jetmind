@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
+{% load jet-tags %}
 <h1>42 Coffee Cups Test Asignment</h1>
+<a href="{% edit_link person %}">Edit using admin edit page</a>
 <div id="info" style="width: 800px;height:250px;">
     <div style="width: 400px; float: left;">
         <p>{{ person.name }}</p>
