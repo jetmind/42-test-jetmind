@@ -9,3 +9,4 @@ class StoredHttpRequest(models.Model):
 
     def __unicode__(self):
         return "%s %s at %s (priority: %d)" % (self.method, self.path, str(self.created_at), self.priority)
+
