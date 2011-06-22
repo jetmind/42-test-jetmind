@@ -1,4 +1,4 @@
 test:	
-	testjet/manage.py test
+	testjet/manage.py test contact requestmiddle
 
 .PHONY: test
