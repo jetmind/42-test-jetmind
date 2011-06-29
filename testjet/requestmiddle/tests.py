@@ -39,3 +39,17 @@ class ContextProcessorTest(TestCase):
         except:
             s = False
         self.assertTrue(s)
+
+
+class PriorityTest(TestCase):
+
+    def test_priority(self):
+        page = '/login/'
+        self.client.get(page)
+        self.client.get(page)
+        response = self.client.get('/requests/')
+        self.assertContains(response, '(priority: 1) GET %s' % page, count=2)
+        prior = 100
+        self.client.post('/requests/', {'priority': prior, 'requestid': 1})
+        response = self.client.get('/requests/')
+        self.assertContains(response, '(priority: %d) GET %s' % (prior, page), count=1)
