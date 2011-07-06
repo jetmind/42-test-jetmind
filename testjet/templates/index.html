@@ -3,8 +3,8 @@
 {% load jet-tags %}
 <h1>42 Coffee Cups Test Asignment</h1>
 <a href="{% edit_link person %}">Edit using admin edit page</a>
-<div id="info" style="width: 800px;height:250px;">
-    <div style="width: 400px; float: left;">
+<div id="info" class="info"> 
+    <div class="info-data">
         <p>{{ person.name }}</p>
         <p>{{ person.surname }}</p>
         <p>{{ person.birth }}</p>
@@ -12,7 +12,7 @@
         <p>Bio:<br />{{ person.bio|linebreaks }}</p>
     </div>
 
-    <div style="">
+    <div>
         <p></p>
         <p>Email: {{ person.contacts.email }}</p>
         <p>Jabber: {{ person.contacts.jabber }}</p>
