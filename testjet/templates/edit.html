@@ -1,42 +1,13 @@
 {% extends "base.html" %}
 {% block head %}
     {{ person_form.media }}
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var options = {
-               // dataType:   json,
-                success:    processJson,
-            };
-            $('#editForm').ajaxForm(options);
-        });
-
-        function processJson(data) {
-            if (data.status == 'ok') {
-                $('#status').html("Information successfully updated.");
-                $('#status').css({color: "green"});
-            } else {
-                $('#status').html("Updating error. Enter valid values.");
-                $('#status').css({color: "red"});
-            }
-        }
-
-        $(document).ajaxStart(function() { 
-            $('#editForm input').attr("disabled", "disabled");
-            $('#editForm textarea').attr("disabled", "disabled");
-            $('#status').html("Sending form data...");
-            $('#status').css({color: "blue"});
-        }).ajaxStop(function() {
-            $('#editForm input').removeAttr("disabled");
-            $('#editForm textarea').removeAttr("disabled");
-        });
-    
-    </script>
+	<script type="text/javascript" src="/static/js/ajax-form.js"></script>
 {% endblock %}
 
 {% block content %}
 <h1>42 Coffee Cups Test Asignment</h1>
 
-<div id="status" style="color: red;"></div>
+<div id="status" class="status"></div>
 
 <form id="editForm" method="POST" action="{% url edit %}">
     {% csrf_token %}

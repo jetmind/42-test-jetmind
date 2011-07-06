@@ -1,0 +1,13 @@
+.status {
+	color: red;
+}
+
+.info {
+	width: 800px;
+	height: 250px;
+}
+
+.info .info-data {
+	width: 400px;
+	float: left;
+}
