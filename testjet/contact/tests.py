@@ -20,7 +20,7 @@ class ContactsTest(TestCase):
 
     def test_page_content(self):
         client = Client()
-        response = client.get('/')
+        response = client.get(reverse('index'))
         self.assertContains(response, 'Igor', count=1, status_code=200)
         self.assertContains(response, 'Bondarenko', count=1)
 
@@ -29,7 +29,7 @@ class ChangeDataTest(TestCase):
     def test_change(self):
         c = Client()
         self.assertTrue(c.login(username='admin', password='admin'))
-        c.post('/edit/', {'name': 'jet', 'surname': 'mind', 'birth': '1988-03-29', 'bio': 'some bio', 
+        c.post(reverse('edit'), {'name': 'jet', 'surname': 'mind', 'birth': '1988-03-29', 'bio': 'some bio', 
                           'email': 'jetmind2@gmail.com', 'jabber': 'i.bond@jabber.com.ua', 
                           'other': 'some info'})
 
