@@ -1,5 +1,6 @@
 from django.test import TestCase, Client
 from contact.models import Person
+from django.core.urlresolvers import reverse
 
 class ContactsTest(TestCase):
 
@@ -37,3 +38,11 @@ class ChangeDataTest(TestCase):
         self.assertEqual(person.surname, 'mind')
         self.assertEqual(person.contacts.other, 'some info')
 
+class WidgetTest(TestCase):
+    
+    def test_contains_js(self):
+        js = '<script type="text/javascript" src="/static/js/calendar.js"></script>'
+        c = Client()
+        c.login(username='admin', password='admin')
+        response = c.get(reverse('edit'))
+        self.assertContains(response, js, count=1)
