@@ -1,4 +1,4 @@
-import testjet
+from django.conf import settings
 
 def add_settings(request):
-    return {'settings': testjet.settings}
+    return {'settings': settings}
