@@ -1,4 +1,5 @@
 from django.test import TestCase, Client
+from django.conf import settings
 from testjet.requestmiddle.models import StoredHttpRequest
 
 class MiddlewareTest(TestCase):
@@ -39,6 +40,7 @@ class ContextProcessorTest(TestCase):
         except:
             s = False
         self.assertTrue(s)
+        self.assertEqual(s, settings)
 
 
 class PriorityTest(TestCase):
